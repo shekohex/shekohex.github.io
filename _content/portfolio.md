@@ -1,7 +1,7 @@
 
 ## What I'm doing right now
 
-I'm working as a Freelancer on [Upwork](https://www.upwork.com/o/profiles/users/_~0135faad7cc004c7eb/), **BUT** I’m currently not have much time to work as freelancer right now.
+I was working as a Freelancer on [Upwork](https://www.upwork.com/o/profiles/users/_~0135faad7cc004c7eb/), **BUT** right now I don't have much time to work as freelancer.
 
 ## My Side Projects
 
