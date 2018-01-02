@@ -1,6 +1,7 @@
 ---
 title: Comments Produce Clean Code
 date: 12-12-2017
+permalink: comments-produce-clean-code
 ---
 
 Ok, this my first time to write here *in my blog*, anyway I will give you small tips you will learn
