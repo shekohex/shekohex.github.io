@@ -32,4 +32,12 @@ I used [Twit](https://github.com/ttezel/twit) -*Twitter API Client for node (RES
 Simple [Blockchain](https://github.com/shekohex/blockchain) Mechanism in [Typescript](http://www.typescriptlang.org/) for Learning Purpose and to demonstrate the basics of blockchains.
 I was lerning how the cryptocurrency works and how it be exist, so I learned block chains and how it useful as it's the core of all cryptocurrencies out there. 
 
-I also have rewrite this project in another languages: [GOlang](https://gist.github.com/shekohex/9da2c116ca2a1209c5851f955bd24a6c) and [Dart](https://gist.github.com/shekohex/3aef759074ad9fcb31fe0f772c8f8fb4) .
+I also have rewrite this project in another languages: [Go lang](https://gist.github.com/shekohex/9da2c116ca2a1209c5851f955bd24a6c) and [Dart](https://gist.github.com/shekohex/3aef759074ad9fcb31fe0f772c8f8fb4) .
+
+
+### Jax: :fire: minimal C-interpreter
+
+[jax](https://github.com/shekohex/jax) is minimal C-interpreter to play with. and desinged for learning purpose
+I was heedful about how compilers/interpreters works What's a VM ? Bytecode! :open_mouth:.
+All these question comes to my head, and i decided to write a VM and an interpreter.
+So I chosed the C language for the simplacity. the code base is well documented and i also included some useful links to get you start up and build your own.
