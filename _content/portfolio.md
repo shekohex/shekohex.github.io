@@ -39,7 +39,8 @@ I also have rewrite this project in another languages: [Go lang](https://gist.gi
 
 [jax](https://github.com/shekohex/jax) is minimal C-interpreter to play with.
 
-desinged for learning purpose
+desinged for learning purpose.
+
 I was heedful about how compilers/interpreters works What's a VM ? Bytecode! :open_mouth:.
 
 All these question comes to my head, and i decided to write a VM and an interpreter.
