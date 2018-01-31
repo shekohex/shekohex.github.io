@@ -41,7 +41,7 @@ I also have rewrite this project in another languages: [Go lang](https://gist.gi
 
 desinged for learning purpose.
 
-I was heedful about how compilers/interpreters works What's a VM ? Bytecode! :open_mouth:.
 
+I was heedful about how compilers/interpreters works What's a VM ? Bytecode! :open_mouth:.
 All these question comes to my head, and i decided to write a VM and an interpreter.
 So I chosed the C language for the simplacity. the code base is well documented and i also included some useful links to get you start up and build your own.
