@@ -6,8 +6,7 @@
   "scripts": {
     "start": "reload -b",
     "compile:dev": "postcss static/css/site.css -o static/css/style.css",
-    "compile": "postcss static/css/site.css -o static/css/style.css",
-    "postcompile": "purgecss --config ./purgecss.config.js --output static/css"
+    "compile": "NODE_ENV=production postcss static/css/site.css -o static/css/style.css"
   },
   "repository": "https://github.com/shekohex/shekohex.github.io.git",
   "author": "Shady Khalifa <shekohex@gmail.com>",

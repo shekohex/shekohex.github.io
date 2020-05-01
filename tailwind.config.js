@@ -1,20 +1,24 @@
 module.exports = {
   theme: {
     fontFamily: {
-      display: ['Gilroy', 'sans-serif'],
-      body: ['Graphik', 'sans-serif'],
+      display: ["Caveat", "cursive"],
+      body: ["Montserrat", "sans-serif"],
     },
     extend: {
       colors: {
-        cyan: '#9cdbff',
+        primary: "#222831",
+        secondary: "#393E46",
+        tertiary: "#EEEEEE",
+        link: "#00ADB5",
       },
       margin: {
-        '96': '24rem',
-        '128': '32rem',
+        "96": "24rem",
+        "128": "32rem",
       },
     },
   },
+  purge: ["index.html"],
   variants: {
-    opacity: ['responsive', 'hover'],
+    opacity: ["responsive", "hover"],
   },
 };
