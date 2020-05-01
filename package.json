@@ -1,0 +1,25 @@
+{
+  "name": "shekohex.github.io",
+  "version": "1.0.0",
+  "description": "My Personal Website",
+  "main": "none.js",
+  "scripts": {
+    "start": "reload -b",
+    "compile:dev": "postcss static/css/site.css -o static/css/style.css",
+    "compile": "postcss static/css/site.css -o static/css/style.css",
+    "postcompile": "purgecss --config ./purgecss.config.js --output static/css"
+  },
+  "repository": "https://github.com/shekohex/shekohex.github.io.git",
+  "author": "Shady Khalifa <shekohex@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "purgecss": "^2.1.2",
+    "reload": "^3.0.4",
+    "tailwindcss": "^1.4.1"
+  }
+}
