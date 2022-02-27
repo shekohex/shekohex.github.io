@@ -17,7 +17,7 @@ module.exports = {
       },
     },
   },
-  purge: ["index.html"],
+  content: ["index.html"],
   variants: {
     opacity: ["responsive", "hover"],
   },
