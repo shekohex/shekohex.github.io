@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;1,300&display=swap');
 
-@tailwind base;
+@import "tailwindcss";
 
-@tailwind components;
+@theme {
+  --font-display: "Caveat", cursive;
+  --font-body: "Montserrat", sans-serif;
 
-@tailwind utilities;
+  --color-primary: #222831;
+  --color-secondary: #393E46;
+  --color-tertiary: #EEEEEE;
+  --color-link: #00ADB5;
+
+  --margin-96: 24rem;
+  --margin-128: 32rem;
+}
