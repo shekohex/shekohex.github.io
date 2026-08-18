@@ -12,26 +12,25 @@ colors:
 typography:
   heading:
     fontFamily: ui-monospace
-    fontSize: 0.75rem
+    fontSize: "clamp(0.75rem, calc(0.65rem + 0.18vw), 1rem)"
     fontWeight: 700
-    lineHeight: 1.25rem
+    lineHeight: "clamp(1.25rem, calc(1rem + 0.3vw), 1.5rem)"
   body:
     fontFamily: ui-monospace
-    fontSize: 0.75rem
+    fontSize: "clamp(0.75rem, calc(0.65rem + 0.18vw), 1rem)"
     fontWeight: 400
-    lineHeight: 1.25rem
+    lineHeight: "clamp(1.25rem, calc(1rem + 0.3vw), 1.5rem)"
   masthead:
     fontFamily: ui-monospace
-    fontSize: 0.75rem
+    fontSize: "clamp(0.75rem, calc(0.65rem + 0.18vw), 1rem)"
     fontWeight: 400
-    lineHeight: 1.125rem
+    lineHeight: "clamp(1.125rem, calc(0.95rem + 0.25vw), 1.5rem)"
 rounded:
   none: 0px
 spacing:
-  page: 40px
-  page-mobile: 24px
-  section: 20px
-  masthead-gap: 80px
+  page: "clamp(1.5rem, calc(1rem + 1.25vw), 4rem)"
+  section: "clamp(1.25rem, calc(1rem + 0.25vw), 1.5rem)"
+  masthead-gap: "clamp(5rem, calc(4rem + 1vw), 8rem)"
 components:
   page-light:
     backgroundColor: "{colors.neutral}"
@@ -69,13 +68,13 @@ Shady's Personal Computer is a deliberately sparse, text-first portfolio. It sho
 
 ## Typography
 
-Use the native monospace stack so text stays sharp at every device pixel ratio and loads without layout shift. The base size is 12px with a 20px line height. Headings use the same size and become prominent through weight, uppercase treatment, Markdown markers, and whitespace—not through oversized display type.
+Use the native monospace stack so text stays sharp at every device pixel ratio and loads without layout shift. The base size is 12px with a 20px line height, scaling fluidly to a maximum of 16px and 24px on wide displays. Headings use the same size and become prominent through weight, uppercase treatment, Markdown markers, and whitespace—not through oversized display type.
 
 ## Layout
 
-- Use a single left-aligned reading column capped at 480px.
-- Apply 40px page padding on desktop and 24px on compact screens.
-- Keep an 80px pause between the masthead and the document body.
+- Use a single left-aligned reading column that scales from 480px to a maximum of 960px on wide displays.
+- Use fluid page padding that ranges from 24px on compact screens to 64px on very wide displays.
+- Keep a fluid pause between the masthead and the document body that ranges from 80px to 128px.
 - Preserve ordinary text wrapping with aggressive overflow protection for long URLs.
 - Keep the page naturally tall; avoid viewport-height centering.
 
@@ -93,7 +92,7 @@ Use square, unframed content. No cards, pills, or rounded buttons.
 - **Section heading:** Uppercase bold text prefixed by a muted Markdown marker (`#` for the opening section and `##` thereafter).
 - **Link:** Inherits foreground color and remains underlined. Hovering swaps foreground and background to resemble terminal selection.
 - **Lists:** Use visible hyphens and Markdown-style `[label](destination)` notation where appropriate.
-- **Footer:** A small ornamental copyright line and build note.
+- **Secondary tagline:** A small personal positioning line between the masthead and document body.
 
 ## Do's and Don'ts
 

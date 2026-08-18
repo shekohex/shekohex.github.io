@@ -7,13 +7,14 @@
   --color-ink: light-dark(#08080a, #f0f0f2);
   --color-muted: light-dark(#6b6b73, #98989f);
 
-  --text-document: 0.75rem;
-  --leading-document: 1.25rem;
-  --leading-masthead: 1.125rem;
+  --text-document: clamp(0.75rem, calc(0.65rem + 0.18vw), 1rem);
+  --leading-document: clamp(1.25rem, calc(1rem + 0.3vw), 1.5rem);
+  --leading-masthead: clamp(1.125rem, calc(0.95rem + 0.25vw), 1.5rem);
 
-  --spacing-document: 30rem;
-  --spacing-masthead: 5rem;
-  --spacing-section: 1.25rem;
+  --spacing-page: clamp(1.5rem, calc(1rem + 1.25vw), 4rem);
+  --spacing-document: clamp(30rem, 42vw, 60rem);
+  --spacing-masthead: clamp(5rem, calc(4rem + 1vw), 8rem);
+  --spacing-section: clamp(1.25rem, calc(1rem + 0.25vw), 1.5rem);
 }
 
 @layer base {
@@ -21,6 +22,20 @@
     color-scheme: light dark;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --color-canvas: #f7f7f8;
+    --color-ink: #08080a;
+    --color-muted: #6b6b73;
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-canvas: #151516;
+    --color-ink: #f0f0f2;
+    --color-muted: #98989f;
   }
 
   html {
@@ -34,7 +49,7 @@
     box-sizing: border-box;
     min-height: 100vh;
     margin: 0;
-    padding: 2rem;
+    padding: var(--spacing-page);
     overflow-wrap: anywhere;
   }
 
@@ -63,15 +78,10 @@
   }
 
   ::selection {
-    color: #000;
-    background: #ff0;
+    color: var(--color-canvas);
+    background: var(--color-ink);
   }
 
-  @media (max-width: 40rem) {
-    body {
-      padding: 1.25rem;
-    }
-  }
 }
 
 @layer components {
@@ -109,6 +119,23 @@
   .document-list > li::before {
     content: "- ";
     color: var(--color-muted);
+  }
+
+  .document-list-spaced > li + li {
+    margin-top: clamp(0.75rem, calc(0.5rem + 0.2vw), 1.25rem);
+  }
+
+  .document-quote {
+    margin-block: 0 1.25rem;
+  }
+
+  .document-quote::before {
+    color: var(--color-muted);
+    content: "> ";
+  }
+
+  .site-footer {
+    margin-top: clamp(3rem, calc(2rem + 1vw), 5rem);
   }
 
   .cursor {

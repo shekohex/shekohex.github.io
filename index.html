@@ -11,6 +11,16 @@
     <meta name="author" content="Shady Khalifa" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f8" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#151516" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const theme = params.has("dark") ? "dark" : params.has("light") ? "light" : null;
+
+        if (theme) {
+          document.documentElement.dataset.theme = theme;
+        }
+      })();
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://shadykhalifa.me/" />
     <meta property="og:title" content="Shady Khalifa — Software Engineer" />
@@ -27,8 +37,6 @@
       content="Software engineer building reliable systems, developer tools, and open-source software."
     />
     <meta name="twitter:image" content="https://shadykhalifa.me/static/favicons/android-chrome-512x512.png" />
-    <meta name="fediverse:creator" content="@shekohex@techhub.social" />
-    <link rel="me" href="https://techhub.social/@shekohex" />
     <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
@@ -43,13 +51,13 @@
       <header class="leading-masthead uppercase" aria-label="Website masthead">
         <p class="m-0">
           SHADY KHALIFA <span class="cursor" aria-hidden="true"></span><br />
-          PERSONAL WEBSITE<br />
+          SOFTWARE ENGINEER<br />
           <time datetime="2026">2026</time>
         </p>
       </header>
 
       <div class="mt-masthead">
-        <p class="m-0">~*~ © Shady Khalifa. Built on the open web. ~*~</p>
+        <p class="m-0">~*~ Building reliable software on the open web. ~*~</p>
 
         <section class="mt-section" aria-labelledby="about-heading">
           <h1 id="about-heading" class="document-heading marker-h1">About Shady Khalifa</h1>
@@ -65,43 +73,39 @@
             You can find him almost anywhere on the internet as
             <a href="https://github.com/shekohex" rel="me noopener noreferrer">[@shekohex](https://github.com/shekohex)</a>.
           </p>
-          <p>
+          <blockquote class="document-quote">
             Psst… Shady is actively looking for his next opportunity and is available for hire. If you are building
             something ambitious, <a href="mailto:hey@shadykhalifa.me">[let’s talk](mailto:hey@shadykhalifa.me)</a>.
-          </p>
+          </blockquote>
         </section>
 
         <section aria-labelledby="work-heading">
           <h2 id="work-heading" class="document-heading marker-h2">Work</h2>
           <ul class="document-list">
             <li>
-              <a href="https://runraptors.com" rel="noopener noreferrer">[Raptors](https://runraptors.com)</a>
-              — logistics software for modern operations.
+              <a href="https://runraptors.com?lang=en_EG" rel="noopener noreferrer"
+                >[Raptors](https://runraptors.com?lang=en_EG)</a
+              >
+              — The operating system for modern delivery.
             </li>
             <li>
               <a href="https://github.com/shekohex" rel="noopener noreferrer">[Open Source](https://github.com/shekohex)</a>
               — experiments, tools, and production software.
+            </li>
+            <li>
+              <a href="https://tangle.tools/" rel="noopener noreferrer">[Tangle](https://tangle.tools/)</a>
+              — infrastructure for running, measuring, and deploying AI agents.
             </li>
           </ul>
         </section>
 
         <section aria-labelledby="elsewhere-heading">
           <h2 id="elsewhere-heading" class="document-heading marker-h2">Elsewhere</h2>
-          <ul class="document-list">
+          <ul class="document-list document-list-spaced">
             <li><a href="https://x.com/shekohex" rel="me noopener noreferrer">[X](https://x.com/shekohex)</a></li>
             <li>
-              <a href="https://stackoverflow.com/users/6686164/shady-khalifa?tab=profile" rel="me noopener noreferrer"
-                >[Stack Overflow](https://stackoverflow.com/users/6686164/shady-khalifa)</a
-              >
-            </li>
-            <li>
-              <a href="https://techhub.social/@shekohex" rel="me noopener noreferrer"
-                >[Mastodon](https://techhub.social/@shekohex)</a
-              >
-            </li>
-            <li>
-              <a href="https://drive.proton.me/urls/RZ3256EQKM#5JCMFE25YUC8" rel="noopener noreferrer"
-                >[Résumé](https://drive.proton.me/urls/RZ3256EQKM)</a
+              <a href="https://bsky.app/profile/shadykhalifa.me" rel="me noopener noreferrer"
+                >[Bluesky](https://bsky.app/profile/shadykhalifa.me)</a
               >
             </li>
           </ul>
@@ -115,6 +119,15 @@
             or <a href="/meet">[book a meeting](/meet)</a>.
           </p>
         </section>
+
+        <footer class="site-footer" aria-label="Theme controls">
+          <p class="m-0">
+            Theme:
+            <a href="/">[system]</a>
+            <a href="/?light">[light]</a>
+            <a href="/?dark">[dark]</a>
+          </p>
+        </footer>
 
       </div>
     </main>
