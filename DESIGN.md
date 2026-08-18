@@ -3,12 +3,12 @@ version: alpha
 name: Shady's Personal Computer
 description: A crisp, text-first personal website inspired by terminal output and readable source documents.
 colors:
-  primary: "#08080A"
-  secondary: "#6B6B73"
-  neutral: "#F7F7F8"
-  neutral-dark: "#151516"
-  selection: "#FFFF00"
-  selection-text: "#000000"
+  primary: "#000000"
+  secondary: "#707070"
+  neutral: "#FFFFFF"
+  neutral-dark: "#000000"
+  selection: "inverted foreground/background"
+  selection-text: "inverted background/foreground"
 typography:
   heading:
     fontFamily: ui-monospace

@@ -3,9 +3,9 @@
 @theme {
   --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  --color-canvas: light-dark(#f7f7f8, #151516);
-  --color-ink: light-dark(#08080a, #f0f0f2);
-  --color-muted: light-dark(#6b6b73, #98989f);
+  --color-canvas: light-dark(#ffffff, #000000);
+  --color-ink: light-dark(#000000, #ffffff);
+  --color-muted: light-dark(#707070, #a6a6a6);
 
   --text-document: clamp(0.75rem, calc(0.65rem + 0.18vw), 1rem);
   --leading-document: clamp(1.25rem, calc(1rem + 0.3vw), 1.5rem);
@@ -26,16 +26,16 @@
 
   :root[data-theme="light"] {
     color-scheme: light;
-    --color-canvas: #f7f7f8;
-    --color-ink: #08080a;
-    --color-muted: #6b6b73;
+    --color-canvas: #ffffff;
+    --color-ink: #000000;
+    --color-muted: #707070;
   }
 
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --color-canvas: #151516;
-    --color-ink: #f0f0f2;
-    --color-muted: #98989f;
+    --color-canvas: #000000;
+    --color-ink: #ffffff;
+    --color-muted: #a6a6a6;
   }
 
   html {
@@ -127,6 +127,8 @@
 
   .document-quote {
     margin-block: 0 1.25rem;
+    color: var(--color-muted);
+    font-style: italic;
   }
 
   .document-quote::before {

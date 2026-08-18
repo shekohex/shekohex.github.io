@@ -9,8 +9,8 @@
     />
     <meta name="keywords" content="Shady Khalifa, shekohex, software engineer, open source" />
     <meta name="author" content="Shady Khalifa" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f8" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#151516" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
     <script>
       (() => {
         const params = new URLSearchParams(window.location.search);
@@ -41,7 +41,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
     <link rel="manifest" href="/static/favicons/manifest.json" />
-    <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#151516" />
+    <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#000000" />
     <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
     <title>Shady Khalifa — Software Engineer</title>
     <link rel="stylesheet" href="/static/css/style.css" />
@@ -52,7 +52,7 @@
         <p class="m-0">
           SHADY KHALIFA <span class="cursor" aria-hidden="true"></span><br />
           SOFTWARE ENGINEER<br />
-          <time datetime="2026">2026</time>
+          <time data-current-year></time>
         </p>
       </header>
 
@@ -160,5 +160,13 @@
 
       </div>
     </main>
+    <script>
+      const currentYear = String(new Date().getFullYear());
+
+      document.querySelectorAll("[data-current-year]").forEach((element) => {
+        element.dateTime = currentYear;
+        element.textContent = currentYear;
+      });
+    </script>
   </body>
 </html>
