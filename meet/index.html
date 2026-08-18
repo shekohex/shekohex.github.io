@@ -17,7 +17,7 @@
   <script>
     (() => {
       const params = new URLSearchParams(window.location.search);
-      const theme = params.has("dark") ? "dark" : params.has("light") ? "light" : null;
+      const theme = params.has("amoled") ? "amoled" : params.has("dark") ? "dark" : params.has("light") ? "light" : null;
 
       if (theme) {
         document.documentElement.dataset.theme = theme;
@@ -29,11 +29,22 @@
 <body class="bg-canvas text-ink font-mono text-document leading-document antialiased">
   <main class="w-full max-w-document">
     <header class="leading-masthead uppercase" aria-label="Website masthead">
-      <p class="m-0">
-        SHADY KHALIFA <span class="cursor" aria-hidden="true"></span><br>
-        MEETING REDIRECT<br>
-        <time data-current-year></time>
-      </p>
+      <div class="masthead-layout">
+        <p class="m-0">
+          SHADY KHALIFA<br>
+          MEETING REDIRECT<br>
+          <time data-current-year></time>
+        </p>
+        <details class="theme-switcher" open>
+          <summary data-theme-summary aria-label="Color theme">[system]</summary>
+          <nav class="theme-controls" aria-label="Color theme">
+            <a data-theme-link="system" href="/meet/">[system]</a>
+            <a data-theme-link="light" href="/meet/?light">[light]</a>
+            <a data-theme-link="dark" href="/meet/?dark">[dark]</a>
+            <a data-theme-link="amoled" href="/meet/?amoled">[amoled]</a>
+          </nav>
+        </details>
+      </div>
     </header>
     <section class="mt-masthead" aria-labelledby="meeting-heading">
       <h1 id="meeting-heading" class="document-heading marker-h1">Book a meeting</h1>
@@ -42,21 +53,32 @@
         <a href="https://calendar.app.google/efaHo3DoGDjpH7pBA">[continue](https://calendar.app.google)</a>.
       </p>
     </section>
-    <footer class="site-footer" aria-label="Theme controls">
-      <p class="m-0">
-        Theme:
-        <a href="/meet/">[system]</a>
-        <a href="/meet/?light">[light]</a>
-        <a href="/meet/?dark">[dark]</a>
-      </p>
-    </footer>
   </main>
   <script>
     const currentYear = String(new Date().getFullYear());
+    const params = new URLSearchParams(window.location.search);
+    const activeTheme = params.has("amoled")
+      ? "amoled"
+      : params.has("dark")
+        ? "dark"
+        : params.has("light")
+          ? "light"
+          : "system";
 
     document.querySelectorAll("[data-current-year]").forEach((element) => {
       element.dateTime = currentYear;
       element.textContent = currentYear;
+    });
+
+    document.querySelectorAll("[data-theme-link]").forEach((link) => {
+      if (link.dataset.themeLink === activeTheme) {
+        link.dataset.active = "true";
+        link.setAttribute("aria-current", "page");
+      }
+    });
+
+    document.querySelectorAll("[data-theme-summary]").forEach((summary) => {
+      summary.textContent = `[${activeTheme}]`;
     });
   </script>
   <script>window.location.href = "https://calendar.app.google/efaHo3DoGDjpH7pBA";</script>

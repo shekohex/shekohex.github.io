@@ -3,9 +3,11 @@
 @theme {
   --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  --color-canvas: light-dark(#ffffff, #000000);
-  --color-ink: light-dark(#000000, #ffffff);
-  --color-muted: light-dark(#707070, #a6a6a6);
+  --color-canvas: light-dark(#dfdfe0, #363c46);
+  --color-ink: light-dark(#242529, #dce0e5);
+  --color-muted: light-dark(#58585a, #a9afbc);
+  --color-highlight: light-dark(#5c78e2, #74ade8);
+  --color-selection: light-dark(#5c78e23d, #74ade83d);
 
   --text-document: clamp(0.75rem, calc(0.65rem + 0.18vw), 1rem);
   --leading-document: clamp(1.25rem, calc(1rem + 0.3vw), 1.5rem);
@@ -26,16 +28,29 @@
 
   :root[data-theme="light"] {
     color-scheme: light;
-    --color-canvas: #ffffff;
-    --color-ink: #000000;
-    --color-muted: #707070;
+    --color-canvas: #dfdfe0;
+    --color-ink: #242529;
+    --color-muted: #58585a;
+    --color-highlight: #5c78e2;
+    --color-selection: #5c78e23d;
   }
 
   :root[data-theme="dark"] {
     color-scheme: dark;
+    --color-canvas: #363c46;
+    --color-ink: #dce0e5;
+    --color-muted: #a9afbc;
+    --color-highlight: #74ade8;
+    --color-selection: #74ade83d;
+  }
+
+  :root[data-theme="amoled"] {
+    color-scheme: dark;
     --color-canvas: #000000;
     --color-ink: #ffffff;
     --color-muted: #a6a6a6;
+    --color-highlight: #74ade8;
+    --color-selection: #74ade83d;
   }
 
   html {
@@ -78,8 +93,8 @@
   }
 
   ::selection {
-    color: var(--color-canvas);
-    background: var(--color-ink);
+    color: var(--color-ink);
+    background: var(--color-selection);
   }
 
 }
@@ -125,6 +140,50 @@
     margin-top: clamp(0.75rem, calc(0.5rem + 0.2vw), 1.25rem);
   }
 
+  .masthead-layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .theme-switcher {
+    position: relative;
+    margin-left: auto;
+  }
+
+  .theme-switcher > summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .theme-switcher > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .theme-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .theme-controls a {
+    text-decoration: none;
+  }
+
+  .theme-controls a[data-active="true"] {
+    color: var(--color-canvas);
+    background-color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  @media (min-width: 40.01rem) {
+    .theme-switcher > summary {
+      display: none;
+    }
+  }
+
   .document-quote {
     margin-block: 0 1.25rem;
     color: var(--color-muted);
@@ -134,10 +193,6 @@
   .document-quote::before {
     color: var(--color-muted);
     content: "> ";
-  }
-
-  .site-footer {
-    margin-top: clamp(3rem, calc(2rem + 1vw), 5rem);
   }
 
   .cursor {
@@ -163,6 +218,30 @@
   @media (prefers-reduced-motion: reduce) {
     .cursor {
       animation: none;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .masthead-layout {
+      gap: 1rem;
+    }
+
+    .theme-controls {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      z-index: 1;
+      display: none;
+      min-width: max-content;
+      padding: 0.25rem;
+      border: 1px solid var(--color-muted);
+      background-color: var(--color-canvas);
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .theme-switcher[open] .theme-controls {
+      display: flex;
     }
   }
 }

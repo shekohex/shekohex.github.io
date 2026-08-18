@@ -4,9 +4,9 @@ name: Shady's Personal Computer
 description: A crisp, text-first personal website inspired by terminal output and readable source documents.
 colors:
   primary: "#000000"
-  secondary: "#707070"
-  neutral: "#FFFFFF"
-  neutral-dark: "#000000"
+  secondary: "#58585A"
+  neutral: "#DFDFE0"
+  neutral-dark: "#363C46"
   selection: "inverted foreground/background"
   selection-text: "inverted background/foreground"
 typography:
@@ -59,12 +59,14 @@ Shady's Personal Computer is a deliberately sparse, text-first portfolio. It sho
 
 ## Colors
 
-- **Neutral (#F7F7F8):** The default paper-like canvas.
-- **Primary (#08080A):** Near-black foreground for strong, crisp contrast.
-- **Secondary (#6B6B73):** Markdown markers and quiet structural details.
-- **Neutral dark (#151516):** Automatic dark-mode canvas.
-- **Selection (#FFFF00):** A bright source-code-style selection highlight.
-- The page follows the operating system color scheme; it does not include a manual theme switch.
+- **Light canvas (#DFDFE0):** The default light-theme background.
+- **Light foreground (#242529):** The default light-theme text.
+- **Dark canvas (#363C46):** The default dark-theme background.
+- **Dark foreground (#DCE0E5):** The default dark-theme text.
+- **AMOLED canvas (#000000):** The optional pure-black background.
+- **Secondary (#58585A):** Markdown markers and quiet structural details.
+- Text selection uses the Zed accent colors (`#5C78E2` light and `#74ADE8` dark) with translucent backgrounds; link hover states invert the current foreground and background colors.
+- The page follows the operating system color scheme by default and supports explicit `?light`, `?dark`, and `?amoled` themes.
 
 ## Typography
 

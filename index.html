@@ -9,12 +9,12 @@
     />
     <meta name="keywords" content="Shady Khalifa, shekohex, software engineer, open source" />
     <meta name="author" content="Shady Khalifa" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#dfdfe0" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#363c46" />
     <script>
       (() => {
         const params = new URLSearchParams(window.location.search);
-        const theme = params.has("dark") ? "dark" : params.has("light") ? "light" : null;
+        const theme = params.has("amoled") ? "amoled" : params.has("dark") ? "dark" : params.has("light") ? "light" : null;
 
         if (theme) {
           document.documentElement.dataset.theme = theme;
@@ -49,11 +49,22 @@
   <body class="bg-canvas text-ink font-mono text-document leading-document antialiased">
     <main class="w-full max-w-document" aria-labelledby="about-heading">
       <header class="leading-masthead uppercase" aria-label="Website masthead">
-        <p class="m-0">
-          SHADY KHALIFA <span class="cursor" aria-hidden="true"></span><br />
-          SOFTWARE ENGINEER<br />
-          <time data-current-year></time>
-        </p>
+        <div class="masthead-layout">
+          <p class="m-0">
+            SHADY KHALIFA<br />
+            SOFTWARE ENGINEER<br />
+            <time data-current-year></time>
+          </p>
+          <details class="theme-switcher" open>
+            <summary data-theme-summary aria-label="Color theme">[system]</summary>
+            <nav class="theme-controls" aria-label="Color theme">
+              <a data-theme-link="system" href="/">[system]</a>
+              <a data-theme-link="light" href="/?light">[light]</a>
+              <a data-theme-link="dark" href="/?dark">[dark]</a>
+              <a data-theme-link="amoled" href="/?amoled">[amoled]</a>
+            </nav>
+          </details>
+        </div>
       </header>
 
       <div class="mt-masthead">
@@ -145,27 +156,37 @@
           <p>
             Reach out at
             <a href="mailto:hey@shadykhalifa.me">[hey](mailto:hey@shadykhalifa.me)</a>
-            or <a href="/meet">[book a meeting](/meet)</a>.
+            or <a href="/meet">[book a meeting](/meet)</a>.<span class="cursor" aria-hidden="true"></span>
           </p>
         </section>
-
-        <footer class="site-footer" aria-label="Theme controls">
-          <p class="m-0">
-            Theme:
-            <a href="/">[system]</a>
-            <a href="/?light">[light]</a>
-            <a href="/?dark">[dark]</a>
-          </p>
-        </footer>
 
       </div>
     </main>
     <script>
       const currentYear = String(new Date().getFullYear());
+      const params = new URLSearchParams(window.location.search);
+      const activeTheme = params.has("amoled")
+        ? "amoled"
+        : params.has("dark")
+          ? "dark"
+          : params.has("light")
+            ? "light"
+            : "system";
 
       document.querySelectorAll("[data-current-year]").forEach((element) => {
         element.dateTime = currentYear;
         element.textContent = currentYear;
+      });
+
+      document.querySelectorAll("[data-theme-link]").forEach((link) => {
+        if (link.dataset.themeLink === activeTheme) {
+          link.dataset.active = "true";
+          link.setAttribute("aria-current", "page");
+        }
+      });
+
+      document.querySelectorAll("[data-theme-summary]").forEach((summary) => {
+        summary.textContent = `[${activeTheme}]`;
       });
     </script>
   </body>
