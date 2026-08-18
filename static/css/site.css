@@ -1,16 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:ital,wght@0,400;0,500;1,300&display=swap');
-
-@import "tailwindcss";
+@import "tailwindcss" source("../..");
 
 @theme {
-  --font-display: "Caveat", cursive;
-  --font-body: "Montserrat", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  --color-primary: #222831;
-  --color-secondary: #393E46;
-  --color-tertiary: #EEEEEE;
-  --color-link: #00ADB5;
+  --color-canvas: light-dark(#f7f7f8, #151516);
+  --color-ink: light-dark(#08080a, #f0f0f2);
+  --color-muted: light-dark(#6b6b73, #98989f);
 
-  --margin-96: 24rem;
-  --margin-128: 32rem;
+  --text-document: 0.75rem;
+  --leading-document: 1.25rem;
+  --leading-masthead: 1.125rem;
+
+  --spacing-document: 30rem;
+  --spacing-masthead: 5rem;
+  --spacing-section: 1.25rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    min-width: 20rem;
+    background-color: var(--color-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 2.5rem;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    margin-block: 0 1.25rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.12em;
+  }
+
+  a:hover {
+    color: var(--color-canvas);
+    background-color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    outline: 0.125rem solid currentColor;
+    outline-offset: 0.2rem;
+  }
+
+  ::selection {
+    color: #000;
+    background: #ff0;
+  }
+
+  @media (max-width: 40rem) {
+    body {
+      padding: 1.5rem;
+    }
+  }
+}
+
+@layer components {
+  .document-heading {
+    margin-block: 0 1.25rem;
+    font-size: inherit;
+    font-weight: 700;
+    line-height: inherit;
+    text-transform: uppercase;
+  }
+
+  .document-heading::before {
+    color: var(--color-muted);
+  }
+
+  .marker-h1::before {
+    content: "# ";
+  }
+
+  .marker-h2::before {
+    content: "## ";
+  }
+
+  .document-list {
+    margin-block: 0 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .document-list > li {
+    padding-left: 1rem;
+    text-indent: -1rem;
+  }
+
+  .document-list > li::before {
+    content: "- ";
+    color: var(--color-muted);
+  }
+
+  .cursor {
+    animation: cursor-flash 1s steps(1, end) infinite;
+  }
+
+  @keyframes cursor-flash {
+    0%, 50% {
+      opacity: 1;
+    }
+
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+  }
 }
